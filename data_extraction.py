@@ -1,39 +1,36 @@
-import numpy as np
-import h5py, pickle, json
-import matplotlib.pyplot as plt 
-
-'''
-add description here
-'''
 # Modifies a traceList-based h5 file and turns it to an input file for the cnn code
-'what do these refer to?(I am not sure about the next few lines)'
+
+import numpy as np
+import h5py, os, sys, pickle
+import pdb #pdb.set_trace()
+import matplotlib.pyplot as plt
+from copy import deepcopy
+
+'General Inputs related to Earthquake parameters'
 nplot  = 0
 snrMin = 0
 ns     = 400 # Samples used are nstart:nstart+ns
 nstart = 101
 augment = 0
 
-if snrMin>0: 
-    print("With snrMin>0 trainTestSplit indices no longer make sense (no?)...")
-
 'data loading'
-infile  = '../onsetWforms_allM3p_180403_reduced.h5' #'loads all the data from Men-Andrin'
-fin   = h5py.File(infile,'r') 
+infile  = '../onsetWforms_allM3p_180403_reduced.h5'
+fin   = h5py.File(infile,'r')
 
 print 'reading data ...'
-#print '=== keys in data set:==='
-#for name in fin: print name #prints the keys under data set [earthquake/noise/tele/regi]
+print '=== keys in data set:==='
+for name in fin: print name #prints the keys under data set [earthquake/noise/tele/regi]
 
-#print '=== keys under earthquake ==='
-#for name in fin['quake']: print name #printes attributes under quake [featureNames/featureVals/numMeta/wfrom]
+print '=== keys under earthquake ==='
+for name in fin['quake']: print name #printes attributes under quake [featureNames/featureVals/numMeta/wfrom]
 
 # QUAKE QUAKE QUAKE QUAKE QUAKE QUAKE QUAKE QUAKE QUAKE QUAKE QUAKE
 'Extracts different details fromt eh data [mainly wforms/featureVals/featureNames/numMeta]'
-#print('=== Reading quake data ====')
+print('=== Reading quake data ====')
 Xq       = fin['/quake/wforms'].value
 Xq       = np.swapaxes(Xq,0,1)
 Xq       = np.swapaxes(Xq,1,2)
-Xq       = Xq[:,nstart:nstart+ns,:]   
+Xq       = Xq[:,nstart:nstart+ns,:]
 Fq       = fin['/quake/featureVals'].value
 Fq       = np.swapaxes(Fq,0,2)
 fqnames  = fin['/quake/featureNames'].value
@@ -51,11 +48,11 @@ snrq = np.power(10,metaVals[3,:])
 nq   = Xq.shape[1]
 
 # NOISE NOISE NOISE NOISE NOISE NOISE NOISE NOISE NOISE NOISE NOISE
-#print('Reading noise data ..')
+print('Reading noise data ..')
 Xn       = fin['/noise/wforms'].value
 Xn       = np.swapaxes(Xn,0,1)
 Xn       = np.swapaxes(Xn,1,2)
-Xn       = Xn[:,nstart:nstart+ns,:]   
+Xn       = Xn[:,nstart:nstart+ns,:]
 Fn       = fin['/noise/featureVals'].value
 Fn       = np.swapaxes(Fn,0,2)
 metaVals = fin['/noise/numMeta'].value
@@ -67,9 +64,7 @@ idn  = metaVals[4,:]
 snrn = np.power(10,metaVals[3,:])
 nn   = Xn.shape[1]
 
-#np.savetxt('mq.txt', mq)
-#print 'finished reading data ...'
-
+print 'finished reading data ...'
 
 def waveform():
 	'returns waveform of earthquakes and noise'
@@ -89,7 +84,7 @@ def plot_wform():
 	i = 1 #random index of a wafeform
 	xyz = 1 #choosing x form of the wfrom
 	t = np.linspace(0,5,400) #generating x-axis (time) from 0 to 5 s
-	plt.plot(t,Xq[i,:,xyz]) 
+	plt.plot(t,Xq[i,:,xyz])
 	plt.plot(t,Fq[1,:,1])
 	plt.show() #if you want to view plot, remove #
 
