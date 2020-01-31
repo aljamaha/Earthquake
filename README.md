@@ -10,7 +10,7 @@ Over 300,000 wavefunctions were used to train a neural network and predict the o
 
 ## Evaluation:
 
-Based on the trained dataset, the model predicts for a new wavefunction if an earthquake will happen or not. The testing accuracy is >85%.
+The most important metric in evaluating the performance of the model is accuracy of predciting the earthquake magnitude. Accuracy >85% is required since the peroormance will be similar to existing methods, however, the algorithm should be much quicker in that aspect. Based on the trained dataset, the model predicts for a new wavefunction if an earthquake will happen or not. The testing accuracy is indeed >85%.
 
 ### Libraries needed:
 
