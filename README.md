@@ -6,7 +6,7 @@ Accurate and early detection of earthquakes is of critical importance in formula
 
 ## Preprocessing:
 
-The script data_extraction.py is responsible for taking the raw data and transforming them into an input for the machine learning algorithm. 24 features were extracted from each wavefunction and fed to the neural network based on various aspects of the wavefunction. 
+The script data_extraction.py is responsible for taking the raw data and transforming them into an input for the machine learning algorithm. 24 features were extracted from each wavefunction and fed to the neural network based on various aspects of the wavefunction. Noise was separated from the real earthquake as well to make sure quality input is added to the model.
 
 ## Data Understanding and Modeling:
 
