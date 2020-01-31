@@ -6,7 +6,7 @@ Accurate and early detection of earthquakes is of critical importance in formula
 
 ## Data Understanding and Modeling:
 
-Over 300,000 wavefunctions were used to train a neural network and predict the order of earthquake magnitude. 24 features were extracted from each wavefunction and fed to the neural network.
+Over 300,000 wavefunctions were used to train a neural network and predict the order of earthquake magnitude. 24 features were extracted from each wavefunction and fed to the neural network. Based on the large size of the database (>10 GB), it can be provided per request.
 
 ## Evaluation:
 
