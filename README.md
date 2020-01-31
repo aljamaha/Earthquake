@@ -6,12 +6,11 @@ Accurate and early detection of earthquakes is of critical importance in formula
 
 ## Data Understanding and Modeling:
 
-Over 300,000 wavefunctions were used to train a neural networ and predict the order of earthquake magnitude. 24 features were extracted from each wavefunction and fed to the neural network.
+Over 300,000 wavefunctions were used to train a neural network and predict the order of earthquake magnitude. 24 features were extracted from each wavefunction and fed to the neural network.
 
 ## Evaluation:
 
 Based on the trained dataset, the model predicts for a new wavefunction if an earthquake will happen or not. The testing accuracy is >85%.
-
 
 ### Libraries needed:
 
@@ -21,5 +20,4 @@ numpy, h5py, matplotlib, and tensorflow
 script used to extract features based on a wavefuction
 
 ## NN.py:
-
-script used to train the neural network
+script used to train and test the neural network
