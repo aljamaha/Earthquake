@@ -33,3 +33,7 @@ script used to train and test the neural network
 ## Model Robustness and Limitations:
 
 The model so far can predict an earthquake with 90% accuracy. The prediction does not give an exact number, but a range (<3, 4-5, >5). This is a limitaiton since ideally the model should predict exactly the magnitude of the earthquake. Other possibility to improve the model is by using an alternative archeticture, for example, a 1-D convolutional neural network. I believe we have reached close to the limit of a fully connected network based on varying many parameters and finding near-optimal solution.
+
+## Conclusion:
+
+A fully connected neural network was trained to predict earthquake mangitude based on >300,000 wavefuctions as in input. Each wavefunction was converted into a 24 parameter input based on various features. The neural network was finely tuned and resulted in 90% accuracy of test data.
