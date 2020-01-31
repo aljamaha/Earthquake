@@ -12,7 +12,7 @@ The script data_extraction.py is responsible for taking the raw data and transfo
 
 Over 300,000 wavefunctions were used to train a neural network and predict the order of earthquake magnitude. 24 features were extracted from each wavefunction and fed to the neural network. Based on the large size of the database (>10 GB), it can be provided per request. The data generally gathered from the USGS.
 
-## Metrics Discussion:
+## Metrics Discussion and Refinement:
 
 For this work, I have decided to go with a fully connected neural network. There are many aspects of the network that could affect the performance. I have examined the effect of number of layers (3,5, and 10 layers gave similar accuracies), beta and L2 normalization (0.1, 0.001, and 0.0001 where the latter was the most critical), and lastly, the distribution between split of input data with earthquakes and no-earthquake. I found an evenly split is best.
 
