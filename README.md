@@ -29,3 +29,7 @@ script used to extract features based on a wavefuction
 
 ## NN.py:
 script used to train and test the neural network
+
+## Model Robustness and Limitations:
+
+The model so far can predict an earthquake with 90% accuracy. The prediction does not give an exact number, but a range (<3, 4-5, >5). This is a limitaiton since ideally the model should predict exactly the magnitude of the earthquake. Other possibility to improve the model is by using an alternative archeticture, for example, a 1-D convolutional neural network. I believe we have reached close to the limit of a fully connected network based on varying many parameters and finding near-optimal solution.
