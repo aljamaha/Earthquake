@@ -20,6 +20,8 @@ For this work, I have decided to go with a fully connected neural network. There
 
 The most important metric in evaluating the performance of the model is accuracy of predciting the earthquake magnitude. Accuracy >85% is required since the peroormance will be similar to existing methods, however, the algorithm should be much quicker in that aspect. Based on the trained dataset, the model predicts for a new wavefunction if an earthquake will happen or not. The testing accuracy is indeed >85%.
 
+Although the testing accuracy is high, it was challenging to further improve the model. The feature extraction (getting 24 information from each wavefunction), might not have been adequate to sufficiently describe the model. A neural network that takes the input from a full wavefunction might be more appropriate since there is no loss of information in such cases. 
+
 ### Libraries needed:
 
 numpy, h5py, matplotlib, and tensorflow
@@ -33,6 +35,8 @@ script used to train and test the neural network
 ## Model Robustness and Limitations:
 
 The model so far can predict an earthquake with 90% accuracy. The prediction does not give an exact number, but a range (<3, 4-5, >5). This is a limitaiton since ideally the model should predict exactly the magnitude of the earthquake. Other possibility to improve the model is by using an alternative archeticture, for example, a 1-D convolutional neural network. I believe we have reached close to the limit of a fully connected network based on varying many parameters and finding near-optimal solution.
+
+As mentioned earlier, the model could be improved by dealing with the input as a full wavefunction instead of reducing it into a 24 parameter input. It could also be improved by using a principal component analysis, where instead of 24 features, the most important features are used.
 
 ## Conclusion:
 
